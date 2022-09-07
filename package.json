@@ -1,0 +1,36 @@
+{
+  "name": "megaloutils",
+  "version": "0.1.1",
+  "description": "Utilities functions that I frequently used.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artplore/megaloutils.git"
+  },
+  "keywords": ["typescript", "utilities", "javascript"],
+  "author": "Artplore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artplore/megaloutils/issues"
+  },
+  "homepage": "https://github.com/artplore/megaloutils#readme",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.8.2"
+  },
+  "files": ["lib/**/*"]
+}

@@ -90,6 +90,17 @@ export function removeOneInArray(array: any[], key: any, value: any) {
   }
 }
 
+export function arrayMove(arr:any[], oldIndex:number, newIndex:number) {
+  if (newIndex >= arr.length) {
+    let k = newIndex - arr.length + 1;
+    while (k--) {
+      arr.push(undefined);
+    }
+  }
+  arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
+  return arr; // for testing
+}
+
 export function removeInArray(array: any[], key: any, value: any) {
   if (!array?.length) return;
   for (let i = 0; i < array.length; i++) {

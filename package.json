@@ -1,6 +1,6 @@
 {
   "name": "megaloutils",
-  "version": "0.1.2",
+  "version": "0.1.16",
   "description": "Utility functions that I frequently used.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

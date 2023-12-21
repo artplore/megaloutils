@@ -471,6 +471,15 @@ export class Deferred {
   }
 }
 
+export const debounce = <F extends ((...args: any) => any)>(func: F, waitFor: number) => {
+  const timeout: number = 0;
+  const debounced = (...args: any) => {
+    clearTimeout(timeout);
+    setTimeout(() => func(...args), waitFor);
+  };
+  return debounced as (...args: Parameters<F>) => ReturnType<F>;
+};
+
 export const getKeyFromPath = (path: string) => {
   const split = path.split('/');
   const toJoin: string[] = [];
@@ -516,3 +525,34 @@ export const optionsFromEnum = (en: any) => {
   return options;
 };
 
+export const lastArrayItem = (arr: any) => {
+  if (Array.isArray(arr) && arr.length) {
+    return arr[arr.length - 1];
+  }
+};
+
+export const removeEmptyObject = (o: any) => {
+  for (const k in o) {
+    if (!o[k] || typeof o[k] !== "object") {
+      continue;
+    }
+    if (Object.keys(o[k]).length === 0 || o[k] === undefined) {
+      delete o[k];
+    }
+    return o;
+  }
+};
+
+export const hasUndefined = (q: any) => {
+  if (q === undefined) {
+    return true;
+  }
+  if (typeof q === 'object') {
+    for (const key of Object.keys(q)) {
+      if (q[key] === undefined) {
+        return true;
+      }
+    }
+  }
+  return false;
+};
